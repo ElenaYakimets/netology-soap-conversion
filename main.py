@@ -2,10 +2,6 @@ import osa
 from math import ceil
 
 
-def convert_float(string):
-    return float(string.replace(',', ''))
-
-
 def get_values(path):
     with open(path, 'r') as f:
         data = f.readlines()
@@ -42,7 +38,7 @@ def get_sum_dist(path):
     dist_travelled = 0
 
     for line in data:
-        distance = convert_float(line.split()[1])
+        distance = float(line.split()[1].replace(',', ''))
         dist_travelled += distance
 
     return '{:.2f}'.format(convert_dist(dist_travelled))
